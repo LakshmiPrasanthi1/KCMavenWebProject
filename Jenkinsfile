@@ -18,9 +18,9 @@ node {
 	stage(‘Deploy-To-Tomcat’){
 
 	 
-	 if('${env.BUILD_URL}' == 'master'){
+	if('${env.BUILD_URL}' == 'master'){
            sshagent([‘tomcat’]) {
-           sh ‘scp -o StrictHostKeyChecking=no target/*.war http://localhost:8082:/opt/apache-tomcat-8.0.53/webapps’
+           sh ‘scp -o StrictHostKeyChecking=no target/*.war ec2-user@10.10.2.254:/opt/apache-tomcat-8.0.53/webapps’
      }
 	 }
 	 
