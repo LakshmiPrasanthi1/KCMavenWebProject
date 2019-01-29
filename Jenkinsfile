@@ -14,10 +14,22 @@ node {
    
           
        }
+	
+	stage(‘Deploy-To-Tomcat’){
+
+	 
+	 if('${env.BUILD_URL}' == 'master'){
+           sshagent([‘tomcat’]) {
+           sh ‘scp -o StrictHostKeyChecking=no target/*.war http://localhost:8082:/opt/apache-tomcat-8.0.53/webapps’
+     }
+	 }
+	 
+  }
+   
 	   
-      stage('Sonar') {
+      //stage('Sonar') {
                     //add stage sonar
-                    sh 'mvn sonar:sonar'
-                }
+                    //sh 'mvn sonar:sonar'
+               // }
        
 }
