@@ -1,11 +1,9 @@
 #!groovy
 
 node {
-  
-	   
        stage('Checkout'){
-
-          checkout scm
+          git credentialsId: 'automatejob', url: 'https://github.com/LakshmiPrasanthi1/KCMavenWebProject.git'
+          
        }
 
        stage('Compiling'){
