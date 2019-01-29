@@ -19,12 +19,12 @@ node {
 
 	 
 	if('${env.BUILD_URL}' == 'master'){
-           sshagent([‘tomcat’]) {
-           sh ‘scp -o StrictHostKeyChecking=no target/*.war ec2-user@10.10.2.254:/opt/apache-tomcat-8.0.53/webapps’
-     }
+           
+           sh 'cp mypipelinePrj/target/maven-web-project-1.0-SNAPSHOT.war E:/DevOps/Softwares/apache-tomcat-8.5.37webapps/'
+     
 	 }
 	 
-  }
+  
    
 	   
       //stage('Sonar') {
